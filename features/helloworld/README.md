@@ -1,5 +1,0 @@
-# Ruby
-
-```
-ruby helloworld.rb
-```
