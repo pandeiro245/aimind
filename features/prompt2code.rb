@@ -12,11 +12,11 @@ client = OpenAI::Client.new(access_token: OPENAI_API_KEY)
 # ターミナルからの入力を受け取る
 puts "Enter the feature name:"
 # feature_name = gets.chomp
-feature_name = 'mysql_show_databases'
+feature_name = 'mysql_show_tables'
 
 puts "Enter the AI prompt:"
 # text = gets.chomp
-text = 'show databases for mysql'
+text = "show tables from the database named 'aimind' for mysql"
 ai_prompt = "#{text} with ruby. (prease return only code without another text and markdown)"
 
 response = client.chat(
@@ -30,12 +30,7 @@ response = client.chat(
 generated_code = response['choices'].first['message']['content']
 
 
-# ディレクトリを作成
-feature_dir = "features/#{feature_name}"
-FileUtils.mkdir_p(feature_dir)
-
-# ファイルを作成
-file_path = "#{feature_dir}/#{feature_name}.rb"
+file_path = "features/#{feature_name}.rb"
 File.open(file_path, 'w') do |file|
   file.write("# This file is auto-generated for the feature: #{feature_name}\n")
   file.write("# AI Prompt: #{ai_prompt}\n\n")

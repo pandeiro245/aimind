@@ -9,7 +9,8 @@ module ProgrammingLanguages
             @client ||= Mysql2::Client.new(
               host: "localhost",
               username: "root",
-              password: ""
+              password: "",
+              database: 'aimind'
             )
           end
         end
