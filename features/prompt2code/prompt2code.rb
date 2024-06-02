@@ -12,11 +12,12 @@ client = OpenAI::Client.new(access_token: OPENAI_API_KEY)
 # ターミナルからの入力を受け取る
 puts "Enter the feature name:"
 # feature_name = gets.chomp
-feature_name = 'helloworld'
+feature_name = 'mysql_show_databases'
 
 puts "Enter the AI prompt:"
-# ai_prompt = gets.chomp
-ai_prompt = 'show helloworld with ruby. (prease return only code without another text and markdown)'
+# text = gets.chomp
+text = 'show databases for mysql'
+ai_prompt = "#{text} with ruby. (prease return only code without another text and markdown)"
 
 response = client.chat(
   parameters: {
