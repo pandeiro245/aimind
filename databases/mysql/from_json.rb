@@ -1,6 +1,6 @@
 require 'mysql2'
 require 'json'
-require_relative '../base/base'
+require_relative 'base'
 
 module Databases
   module Mysql
